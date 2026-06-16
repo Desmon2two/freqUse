@@ -59,8 +59,7 @@ body {
   font-size: var(--font-size-regular);
 }
 .wrapper-main {
-  width: 85%;
-  position: relative;
+  width: 85vw;
   height: 96vh;
   justify-self: center;
   .main-input {
@@ -116,12 +115,14 @@ body {
     }
   }
 }
+.header-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: center;
+}
 .main-switch-mode {
-  position: absolute;
   display: flex;
   column-gap: 1vw;
-  right: 30vw;
-  top: 25vh;
   font-size: var(--font-size-extraSmall);
 }
 .description {
