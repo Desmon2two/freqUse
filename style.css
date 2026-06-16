@@ -1,0 +1,133 @@
+:root {
+  /* Color palette tokens */
+  --color-primary: rgb(38, 152, 116);
+  --color-neutral-dark: rgb(10, 6, 30);
+  --color-neutral-light: rgb(233, 233, 233);
+  --color-inaccesible: rgb(247, 232, 232);
+  --bcgColor-inaccesible: rgb(246, 72, 72);
+
+  /* Border */
+  --border-radius: 7px;
+  --border-color: black;
+
+  /* Font-sizes */
+  --font-size-extraSmall: 6px;
+  --font-size-small: 12px;
+  --font-size-regular: 14px;
+  --font-size-heading: 18px;
+
+  /* Layout Spacing Tokens */
+  --space-sm: 5px;
+  --space-md: 10px;
+  --space-lg: 20px;
+}
+.hidden {
+  display: none;
+}
+.rounded {
+  border-radius: var(--border-radius);
+}
+.bordered {
+  border: 1px solid var(--border-color);
+}
+.padded {
+  padding: var(--space-sm);
+}
+.centered {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.theme-light {
+  color: var(--color-primary);
+  background-color: var(--color-neutral-light);
+}
+.theme-dark {
+  color: var(--color-primary);
+  background-color: var(--color-neutral-dark);
+}
+.button-primary {
+  background-color: var(--color-neutral-light);
+  color: var(--color-primary);
+}
+@font-face {
+  font-family: "Roboto Slab";
+  src: url(Roboto_Slab/RobotoSlab-VariableFont_wght.ttf);
+}
+body {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: var(--font-size-regular);
+}
+.wrapper-main {
+  width: 85%;
+  position: relative;
+  height: 96vh;
+  justify-self: center;
+  .main-input {
+    display: flex;
+  }
+  .main-submit-button {
+    font-size: var(--font-size-small);
+    width: 6vw;
+    margin-top: 2vh;
+  }
+  .main-results-header {
+    width: 100%;
+    padding: 2.5vh 0;
+  }
+  .result-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 30vw 50vw;
+    grid-template-rows: 50vh;
+    column-gap: 4rem;
+    .main-results-loading {
+      position: absolute;
+      top: 53vh;
+    }
+    .main-results-wrapper {
+      overflow: hidden;
+      padding: 2vh 2.5vw;
+      .main-results-textbox {
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        font-size: var(--font-size-regular);
+      }
+      .main-results-showbutton {
+        display: flex;
+        width: fit-content;
+        margin: 2rem;
+      }
+    }
+
+    .main-scheme {
+      height: 60vh;
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: auto;
+      padding-top: var(--space-lg);
+      justify-content: center;
+      align-content: center;
+    }
+    .main-scheme-textBox {
+      scale: 0.5;
+      z-index: -5;
+    }
+  }
+}
+.main-switch-mode {
+  position: absolute;
+  display: flex;
+  column-gap: 1vw;
+  right: 30vw;
+  top: 25vh;
+  font-size: var(--font-size-extraSmall);
+}
+.description {
+  color: var(--color-primary);
+}
+.main-submit-button:disabled {
+  background-color: var(--bcgColor-inaccesible);
+  color: var(--color-inaccesible);
+}
