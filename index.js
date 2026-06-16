@@ -1,10 +1,8 @@
-const inputbtn = document.querySelector(".main-submit-button");
-const fileInput = document.querySelector(".main-input");
-const resultContainer = document.querySelector(".main-results-textbox");
-const resultScheme = document.querySelector(".main-scheme");
-const resultLoading = document.querySelector(".main-results-loading");
-const previewText = document.querySelector(".main-results-textbox p");
-const showBtn = document.querySelector(".showbtn");
+const inputbtn = document.querySelector(".input__button");
+const fileInput = document.querySelector(".input__file");
+const resultLoading = document.querySelector(".loading-indicator");
+const resultContainer = document.querySelector(".item__textbox");
+const resultScheme = document.querySelector(".grid__second-item");
 const radioBtnLine = document.querySelector(".radioBtn-line");
 const radioBtnLineHorizontal = document.querySelector(
   ".radioBtn-line-horizontal",
@@ -12,7 +10,7 @@ const radioBtnLineHorizontal = document.querySelector(
 const radioBtnFallingDown = document.querySelector(".radioBtn-falling-down");
 const radioBtnInLine = document.querySelector(".radioBtn-inline");
 const radioBtnCircle = document.querySelector(".radioBtn-circle");
-const radioButtons = document.querySelectorAll('input[name="switch"]');
+const radioButtons = document.querySelectorAll(`[name = "radio__switch"]`);
 
 radioBtnInLine.checked = true;
 
@@ -47,42 +45,31 @@ fileInput.addEventListener("change", function (event) {
           const parser = new DOMParser();
           const doc = parser.parseFromString(e.target.result, "text/html");
 
-          // Select all <img> tags
           const imgs = doc.querySelectorAll("img");
 
           imgs.forEach((img) => {
             const src = img.getAttribute("src") || "";
             const lowerSrc = src.toLowerCase();
             if (lowerSrc.endsWith(".jpg") || lowerSrc.endsWith(".webp")) {
-              // Remove the image tag or ignore it
               img.remove();
             }
           });
 
-          // Get the sanitized HTML back as string
           const sanitizedHTML = doc.documentElement.outerHTML;
 
-          // resultContainer.classList.add("hidden");
 
-          // Now, process or display sanitizedHTML
           resultContainer.innerHTML += sanitizedHTML;
         } else if (file.type === "application/json") {
-          // process JSON
         } else {
           throw new Error("Please upload valid files types");
         }
 
         interactWithData(n);
-        // resultContainer.classList.add(".hidden");
-        // if (n.count - 1 === files.length) {
-        //   resultContainer.classList.remove("hidden");
-        // }
         if (n.count - 1 === files.length) {
           resultLoading.innerHTML = `downloaded all the files, ready!`;
           inputbtn.disabled = false;
         }
         resultContainer.querySelector("p").classList.add("hidden");
-        // previewText.classList.add(".hidden");
       } catch (error) {
         resultContainer.innerHTML = `<span style="color:red;">${error}</span>`;
         console.error(error);
@@ -112,7 +99,7 @@ const storedDisplayWordMap = function displayWordMap() {
   };
   firstFiftyEntries.forEach((value, index, array) => {
     let para = document.createElement("p");
-    para.classList.add("main-scheme-textBox");
+    para.classList.add("second-item__text second-item__text--scaleDown");
     para.innerText = firstFiftyEntries[index][1][0];
     para.style.fontSize = `${firstFiftyEntries[index][1][1]}px`;
     para.style.lineHeight = `${Math.floor(lineHeight.number / 10)}`;
@@ -151,7 +138,6 @@ const storedDisplayWordMap = function displayWordMap() {
   });
 };
 inputbtn.addEventListener("click", () => {
-  // const k = Array.from(document.querySelectorAll(".from_name, .text"));
   const divTextArray = Array.from(document.querySelectorAll(".text"));
   const splitAndTrimDivArray = divTextArray.flatMap((item) =>
     item.innerText.trim().split(/[,;: *\-?!'"_]/),
@@ -179,3 +165,4 @@ inputbtn.addEventListener("click", () => {
 radioButtons.forEach((button) => {
   addEventListener("change", storedDisplayWordMap);
 });
+

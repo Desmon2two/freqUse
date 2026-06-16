@@ -8,61 +8,66 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="wrapper-main">
-      <h1 class="main-header">The frequent used words parser</h1>
-      <input
-        type="file"
-        accept=".html,.JSON,.txt"
-        multiple
-        class="main-input rounded padded"
-        placeholder="Select text/HTML/JSON file"
-      />
-      <button class="main-submit-button button-primary bordered rounded padded">
-        Start
-      </button>
-      <div class="header-wrapper">
+    <div class="wrapper">
+      <h1 class="header">The frequent used words parser</h1>
+      <div class="input">
+        <input
+          type="file"
+          accept=".html,.JSON,.txt"
+          multiple
+          class="input__file rounded padded"
+          placeholder="Select text/HTML/JSON file" />
+        <button class="input__button btn bordered rounded padded">Start</button>
+      </div>
 
-        <h2 class="main-results-header">Results:</h2>
-        <div class="main-switch-mode">
-          <div class="radio-group">
-            <div class="description"></div>
-          </div>
-          <div class="radio-group">
-            <input type="radio" name="switch" class="radioBtn-inline" />
-            <div class="description">Inline</div>
-          </div>
-          <div class="radio-group">
-            <input type="radio" name="switch" class="radioBtn-circle" />
-            <div class="description">Circle</div>
-          </div>
-          <div class="radio-group">
-          <input type="radio" name="switch" class="radioBtn-line" />
-          <div class="description">Line</div>
+      <div class="radio-group">
+        <div class="radio-group__switch">
+          <input
+            type="radio"
+            name="radio__switch"
+            class="radioBtn-inline radio__btn radio__btn--square" />
+          <div class="radio__description">Inline</div>
         </div>
-        <div class="radio-group">
-          <input type="radio" name="switch" class="radioBtn-line-horizontal" />
-          <div class="description">Horizontal Line</div>
+        <div class="radio-group__switch">
+          <input
+            type="radio"
+            name="radio__switch"
+            class="radioBtn-circle radio__btn radio__btn--square" />
+          <div class="radio__description">Circle</div>
         </div>
-        <div class="radio-group">
-          <input type="radio" name="switch" class="radioBtn-falling-down" />
-          <div class="description">Falling down</div>
+        <div class="radio-group__switch">
+          <input
+            type="radio"
+            name="radio__switch"
+            class="radioBtn-line radio__btn radio-group__btn--square" />
+          <div class="radio__description">Line</div>
+        </div>
+        <div class="radio-group__switch">
+          <input
+            type="radio"
+            name="radio__switch"
+            class="radioBtn-line-horizontal radio-group__btn radio__btn--square" />
+          <div class="radio__description">Horizontal Line</div>
+        </div>
+        <div class="radio-group__switch">
+          <input
+            type="radio"
+            name="radio__switch"
+            class="radioBtn-falling-down radio-group__btn radio__btn--square" />
+          <div class="radio__description">Falling down</div>
+        </div>
+        <div class="radio-group__loading-indicator loading-indicator">
+          loading ind
         </div>
       </div>
-    </div>
 
-      <div class="main-results">
-        <div class="result-wrapper">
-          <div class="main-results-loading"></div>
-          <div class="main-results-wrapper bordered rounded">
-            <div class="main-results-textbox">
-              <p>Here will be your results!</p>
-            </div>
+      <div class="grid">
+        <div class="grid__first-item grid__item bordered rounded">
+          <div class="item__textbox">
+            <p>Here will be your results!</p>
           </div>
-          <!-- <div class="main-results-showbutton">
-          <button type="button" class="showbtn">Show Raw file output</button>
-        </div> -->
-          <div class="main-scheme bordered rounded"></div>
         </div>
+        <div class="grid__second-item grid__item bordered rounded"></div>
       </div>
     </div>
 
