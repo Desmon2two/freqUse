@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frequent use</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper-main">
+      <h1 class="main-header">The frequent used words parser</h1>
+      <input
+        type="file"
+        accept=".html,.JSON,.txt"
+        multiple
+        class="main-input rounded padded"
+        placeholder="Select text/HTML/JSON file"
+      />
+      <button class="main-submit-button button-primary bordered rounded padded">
+        Start
+      </button>
+      <h2 class="main-results-header">Results:</h2>
+      <div class="main-switch-mode">
+        <div class="radio-group">
+          <div class="description"></div>
+        </div>
+        <div class="radio-group">
+          <input type="radio" name="switch" class="radioBtn-inline" />
+          <div class="description">Inline</div>
+        </div>
+        <div class="radio-group">
+          <input type="radio" name="switch" class="radioBtn-circle" />
+          <div class="description">Circle</div>
+        </div>
+        <div class="radio-group">
+          <input type="radio" name="switch" class="radioBtn-line" />
+          <div class="description">Line</div>
+        </div>
+        <div class="radio-group">
+          <input type="radio" name="switch" class="radioBtn-line-horizontal" />
+          <div class="description">Horizontal Line</div>
+        </div>
+        <div class="radio-group">
+          <input type="radio" name="switch" class="radioBtn-falling-down" />
+          <div class="description">Falling down</div>
+        </div>
+      </div>
+
+      <div class="main-results">
+        <div class="result-wrapper">
+          <div class="main-results-loading"></div>
+          <div class="main-results-wrapper bordered rounded">
+            <div class="main-results-textbox">
+              <p>Here will be your results!</p>
+            </div>
+          </div>
+          <!-- <div class="main-results-showbutton">
+          <button type="button" class="showbtn">Show Raw file output</button>
+        </div> -->
+          <div class="main-scheme bordered rounded"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
